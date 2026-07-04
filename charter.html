@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAIMERIT — 원장 헌장 초안</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--border:#30363d;--fg:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--warn-bg:#2d2200;--warn-bd:#9e6a03;--warn-fg:#f0d264}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.65;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:28px 16px 56px}
+nav{margin-bottom:24px;font-size:.95rem}
+nav a{color:var(--accent);text-decoration:none;margin-right:18px}
+nav a:hover{text-decoration:underline}
+h1{font-size:1.9rem;margin:0 0 4px}
+h2{font-size:1.25rem;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+h3{font-size:1.05rem;margin:24px 0 8px}
+.tagline{color:var(--accent);font-size:1.05rem;margin:0 0 14px}
+.thesis{color:var(--muted);font-size:.95rem;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:8px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.card .num{font-size:1.7rem;font-weight:700;display:block}
+.card .lbl{color:var(--muted);font-size:.85rem}
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--border);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+th{color:var(--muted);font-weight:600;font-size:.82rem}
+th,td{padding:9px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.badge{font-weight:700;white-space:nowrap}
+.badge-B{color:#d29a67}.badge-S{color:#b8c0c8}.badge-G{color:#e3b341}.badge-P{color:#9ee6ff}
+.num-cell{text-align:right;font-variant-numeric:tabular-nums}
+.ev{color:var(--muted);font-size:.8rem;display:block;margin-top:2px}
+.note{color:var(--muted);font-size:.85rem;margin-top:10px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-fg);
+  border-radius:10px;padding:12px 16px;margin:0 0 24px;font-weight:600}
+blockquote{border-left:3px solid var(--warn-bd);margin:14px 0;padding:4px 16px;color:var(--warn-fg);background:var(--panel);border-radius:0 8px 8px 0}
+blockquote p{margin:6px 0}
+pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:12px;overflow-x:auto}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em}
+p code,li code{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:0 4px}
+footer{color:var(--muted);font-size:.83rem;margin-top:44px;border-top:1px solid var(--border);padding-top:14px}
+footer p{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="index.html">현황</a><a href="charter.html">헌장 초안</a></nav>
+<div class="banner">초안 — 승인 전 효력 없음 (오너 T2 승인 대기)</div>
+<h1>D003 — MAIMERIT 원장 헌장 초안 (Ledger Charter)</h1>
+<blockquote>
+<p><strong>초안 — 오너 T2 승인 전 효력 없음.</strong></p>
+<p>백로그 #17·#19(·#18은 D002 참조)·#25. 근거: A004 결정 B(3:0)·P0 반영 지시 5,</p>
+<p>A005 economy ①·감사 지적.</p>
+<p>(파일 번호 주: 백로그상 "D002 초안"이었으나 D002는 부 헌장이 선점 — D003으로 채번.)</p>
+</blockquote>
+<h2>1. 상설 가드레일 (A004-5)</h2>
+<blockquote>
+<p><strong>"기여 점수는 어떤 경우에도 공용 물리 공간 접근을 차등하지 않는다."</strong></p>
+</blockquote>
+<ul>
+<li>위 1문장은 내부 규정이 아니라 <strong>인용 가능한 공개 정책</strong>으로 게시한다 (방어 비용을 브랜드 자산으로 전환).</li>
+<li>금지 대상의 정밀 한정: <strong>공용 공간에서 비멤버가 체감(가시)하는 기여 점수 기반 서비스 차등</strong> — 좌석 우선권은 전 시간대 금지이며 재도입 불가.</li>
+<li>공용 공간 내 재도입은 불가. 상위 기여자 리텐션 추적은 유지/중단 게이트로만 사용한다 (원칙 4 준수).</li>
+</ul>
+<h2>2. 허용 소비처 화이트리스트 (A004-5 그대로)</h2>
+<p>기여 점수(존경 레이어)의 소비처는 아래 비가시적 채널로 한정한다:</p>
+<ol>
+<li>기여자 보드/월 (명예의 벽)</li>
+<li>세션 얼리 부킹 윈도 (앱 한정 — 비멤버 비가시)</li>
+<li>세션 개설·주최권 (agency형, R&gt;1 재생산 효과)</li>
+<li>이벤트 초대</li>
+<li>고정 풀 내 F&amp;B 크레딧</li>
+</ol>
+<p><strong>적용 제외 (돈 기반 경계 — 이 헌장과 무관):</strong> 유료 룸 대여, 독립 강사 세션, 선불 할인.</p>
+<p>MAISTUDYMATE 문서 반영 시 이 경계를 명기한다 (해당 반영은 MAISTUDYMATE 흐름 관할).</p>
+<h2>3. 부 헌장 (참조 — 단일 정본 원칙)</h2>
+<p>부(富) 레이어의 산식·트리거는 <strong><code>D002-wealth-charter.md</code>가 정본</strong>이며 이 문서에 중복 기재하지 않는다.</p>
+<p>백로그 #18이 요구하는 요소의 소재 확인: 산식 <code>min(0.5%×매출, $500)</code> = D002 §2 ·</p>
+<p>자동 트리거·무재량 = §3 · 데뷔 플로어($250 미달 이월) = §3 · 룩백(founding cohort) = §3 ·</p>
+<p><strong>"회차별 재량 결의(ex-gratia)로 확정되며 지급 약속 아님"</strong> = §4.</p>
+<h2>4. 잉여 환류 규정 (surplus reflux — 풀 단위)</h2>
+<ol>
+<li><strong>환류는 풀 단위로만</strong> 이루어진다. 개인 점수↔돈 직교환은 금지하며, 개인 점수와 환류액을 잇는 어떤 산식도 만들지 않는다 ("점수당 환율" 금지 — 소급 임금화 차단).</li>
+<li><strong>total 스칼라 순함수 금지</strong>: 4렌즈 합산치(total)만을 입력으로 하는 배분·랭킹 산식을 금지한다 — 단일 종합점수 금지선의 헌법화 (A005 의장 지적).</li>
+<li>환류 기준은 매출이 아닌 <strong>정의된 순잉여</strong>(부록 A의 net)다.</li>
+<li>법적 구조는 <strong>grant(증여)</strong> — 참여자의 청구권은 존재하지 않으며, 회사는 지급 유보 권한을 가진다 (D002 §4의 ex-gratia 성격과 동일).</li>
+<li><code>surplus_reflux_rate</code> 및 잉여 정의의 변경은 <strong>T3 게이트 + 참여자 사전 고지 기간</strong>을 요한다.</li>
+<li>attestation 행위는 환류 산식에서 영구 제외 (D002 §5, 원칙 1).</li>
+</ol>
+<h2>부록 A — surplus-log.jsonl 스키마 (#25, 스키마만 — 가동은 P2)</h2>
+<p>풀 가동(P2 첫 운영 잉여 실현) 전에는 <strong>파일을 생성하지 않는다.</strong> 지급 시작 전에</p>
+<p>잉여 정의를 확정해 두는 것이 목적이다 (섀도 풀 ₩ 기대-런 심리 방지).</p>
+<pre><code>
+{
+  &quot;period&quot;: &quot;YYYY-Q#&quot;,
+  &quot;gross&quot;: 0,
+  &quot;pg_fee&quot;: 0,
+  &quot;tax&quot;: 0,
+  &quot;refund_clawback&quot;: 0,
+  &quot;net&quot;: 0
+}
+</code></pre>
+<ul>
+<li><code>net = gross - pg_fee - tax - refund_clawback</code> — 환류 기준액.</li>
+<li><strong>운영자 전용</strong>: 섀도 풀은 <strong>총액만</strong> 기록하며 참여자에게 노출하지 않는다 (개인별 환산·기대액 표시 금지).</li>
+<li>분기별 공개 대사(surplus-log vs 외부 증빙)는 풀 가동 후 의무 (A005 economy ①).</li>
+</ul>
+<footer>
+<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 10:57 KST</p>
+<p>집계 규율: supersedes 제외 · attestation 검증(dangling/중복/셀프 무효, 주간 크레딧 상한) · 7일 롤링 총점 캡</p>
+</footer>
+</div>
+</body>
+</html>
