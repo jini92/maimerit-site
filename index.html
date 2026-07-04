@@ -73,14 +73,16 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 <div class="cloops"><div class="cloop"><b>&#8630; 보상 &rarr; 기여</b> — 사이클은 처음으로 돌아간다: 보상받은 기여자가 다시 기여한다.</div><div class="cloop"><b>&#9881; 인증 &rarr; 기여</b> — 인증은 그 자체가 +1 최소 기여다. 수혜자가 인증하는 순간 그도 기여자가 된다.</div><div class="cloop"><b>&#8635; 잉여 환류</b> — 커뮤니티 잉여의 고정 %가 보상 풀로 환류되어 다음 기여의 동력이 된다.</div></div>
 <h2>① 기여 — 기록과 증거</h2>
 <div class="cards">
-<div class="card"><span class="num">7</span><span class="lbl">유효 기여</span></div>
-<div class="card"><span class="num">8</span><span class="lbl">원장 기록</span></div>
+<div class="card"><span class="num">9</span><span class="lbl">유효 기여</span></div>
+<div class="card"><span class="num">10</span><span class="lbl">원장 기록</span></div>
 <div class="card"><span class="num">2</span><span class="lbl">기여자</span></div>
 </div>
 <p class="note">원장은 append-only — 정정은 삭제가 아니라 supersedes 레코드로 이루어지며, 대체된 원본은 집계에서만 제외된다 (원장 기록과 유효 기여의 차이가 그 정정분).</p>
 <h3>최근 기여</h3>
 <div class="tablewrap"><table>
 <tr><th>날짜</th><th>기여자</th><th>프로젝트</th><th>N/E/I/C</th><th>total</th><th>내용</th></tr>
+<tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">4/3/3/4</td><td class="num-cell">14</td><td>사이클 사이트 &#x27;원장 에디토리얼&#x27; 디자인 패스 — 고운바탕/한지 그레인/낙관 인장/괘선·세로 눈썹/플라이휠 U자 회귀 레일/스태거 모션, 실렌더 검증 및 결함 3건 수정<span class="ev">증거: gh-pages 커밋 d6a0234 · 데스크톱 1280·모바일 390 Playwright 렌더 검증 · 데이터 원장 동기화(7건·정정 카드·라이브 원장 링크)</span></td></tr>
+<tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/3/3/4</td><td class="num-cell">13</td><td>라이브 원장 사이트를 자생 사이클 구조로 개편(다이어그램+단계별 라이브 섹션+5원칙) + 프로토콜 스펙 v0.1 첫 공개(spec.html)<span class="ev">증거: MAIMERIT 커밋 699f0ae · maimerit-site 커밋 f21b5c3 · 3페이지 200 확인, sanitize PASS</span></td></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/3/4/5</td><td class="num-cell">15</td><td>운영 사이트(정적 GitHub Pages) 구축 + 주간 자동 게시 파이프라인(schtasks) + 중복 파이프라인 통합 + 레벨 보드(무순위) 전환<span class="ev">증거: 사이트 maimerit-site (GitHub Pages) · MAIMERIT 커밋 dce92e7 외 · Discord 게시 E2E 실증 msg 1522783936772706435 · 정정 사유: 원본 c-007 evidence에 로컬 계정명 유사 문자열 포함 — 새니타이즈 게이트 검출</span></td></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/4/3/4</td><td class="num-cell">14</td><td>P0 기계적 트랜치 16항목: meritlib 분리·--stats 텔레메트리·aliases·7일 롤링캡·ritual.md·spec v0.1·merit_lint·헌장 초안(D003)·P1 게이트 갱신<span class="ev">증거: MAIBOT 커밋 2e9e9d020f · MAIMERIT 커밋 9e8deba, 0f6391a · test_report.py 전 케이스 PASS, 실원장 회귀 무변화</span></td></tr>
 <tr><td>2026-07-04</td><td>지니+Claude</td><td>MAIMERIT</td><td class="num-cell">4/4/4/4</td><td class="num-cell">16</td><td>자생 기반 전문가 토론 2건(13인 본토론+트레저리 4인) + 결정 위원회 + A003~A005/I001 문서화<span class="ev">증거: MAIMERIT docs/A005-foundation-debate.md · docs/A004-decision-record.md · docs/I001-p0-backlog.md · 커밋 302c335, 6bc46af, 613b6b8</span></td></tr>
@@ -102,7 +104,7 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 <tr><td><span class="badge badge-S">[S] Silver</span></td><td>지니+Claude</td><td class="num-cell">29</td><td class="num-cell">0/0</td></tr>
 </table></div>
 <p class="note">순위 없음 — 레벨은 절대 기준 도달의 표시이며 서로를 이기는 랭킹이 아닙니다.</p>
-<p class="note">7일 롤링 총점 캡(40, 보수적 프라이어) 초과 미산입: Claude/MAIJini 29점</p>
+<p class="note">7일 롤링 총점 캡(40, 보수적 프라이어) 초과 미산입: Claude/MAIJini 56점</p>
 <h3>레벨 기준</h3>
 <div class="tablewrap"><table>
 <tr><th>레벨</th><th>누적 점수 구간</th></tr>
@@ -135,7 +137,7 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 <li><b>원장 규율</b> — 원장은 append-only, 정정은 supersedes로만. 이 사이트의 수치는 검증 규율(스킵·캡) 통과분만 반영한다.</li>
 </ul>
 <footer>
-<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 12:43 KST</p>
+<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 13:08 KST</p>
 <p>집계 규율: supersedes 제외 · attestation 검증(dangling/중복/셀프 무효, 주간 크레딧 상한) · 7일 롤링 총점 캡</p>
 </footer>
 </div>
