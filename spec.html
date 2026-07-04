@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAIMERIT — 프로토콜 스펙 v0.1</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--border:#30363d;--fg:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--warn-bg:#2d2200;--warn-bd:#9e6a03;--warn-fg:#f0d264}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.65;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:28px 16px 56px}
+nav{margin-bottom:24px;font-size:.95rem}
+nav a{color:var(--accent);text-decoration:none;margin-right:18px}
+nav a:hover{text-decoration:underline}
+a{color:var(--accent)}
+h1{font-size:1.9rem;margin:0 0 4px}
+h2{font-size:1.25rem;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+h3{font-size:1.05rem;margin:24px 0 8px}
+.tagline{color:var(--accent);font-size:1.05rem;margin:0 0 14px}
+.thesis{color:var(--muted);font-size:.95rem;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:8px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.card .num{font-size:1.7rem;font-weight:700;display:block}
+.card .lbl{color:var(--muted);font-size:.85rem}
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--border);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+th{color:var(--muted);font-weight:600;font-size:.82rem}
+th,td{padding:9px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.badge{font-weight:700;white-space:nowrap}
+.badge-B{color:#d29a67}.badge-S{color:#b8c0c8}.badge-G{color:#e3b341}.badge-P{color:#9ee6ff}
+.num-cell{text-align:right;font-variant-numeric:tabular-nums}
+.ev{color:var(--muted);font-size:.8rem;display:block;margin-top:2px}
+.note{color:var(--muted);font-size:.85rem;margin-top:10px}
+.banner{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-fg);
+  border-radius:10px;padding:12px 16px;margin:0 0 24px;font-weight:600}
+blockquote{border-left:3px solid var(--warn-bd);margin:14px 0;padding:4px 16px;color:var(--warn-fg);background:var(--panel);border-radius:0 8px 8px 0}
+blockquote p{margin:6px 0}
+pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:12px;overflow-x:auto}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em}
+p code,li code{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:0 4px}
+footer{color:var(--muted);font-size:.83rem;margin-top:44px;border-top:1px solid var(--border);padding-top:14px}
+footer p{margin:4px 0}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+.cycle{display:flex;align-items:stretch;gap:6px;margin:18px 0 4px}
+.cnode{flex:1 1 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:10px 8px;text-align:center;min-width:0}
+.cnode b{display:block;font-size:.9rem;margin-bottom:2px}
+.cnode span{color:var(--muted);font-size:.76rem;line-height:1.35;display:block}
+.carrow{align-self:center;color:var(--accent);font-weight:700;flex:0 0 auto;font-size:1.05rem}
+.creturn{border:1.5px solid var(--accent);border-top:none;border-radius:0 0 14px 14px;height:16px;margin:0 36px 4px;position:relative;opacity:.7}
+.creturn::after{content:"\25B2";position:absolute;left:-7px;top:-10px;color:var(--accent);font-size:.72rem}
+.cloops{display:grid;gap:8px;margin:12px 0 4px}
+.cloop{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:8px 12px;font-size:.86rem;color:var(--muted)}
+.cloop b{color:var(--fg)}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:8px}
+.principle{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.principle b{display:block;margin-bottom:4px}
+.principle p{margin:0;color:var(--muted);font-size:.86rem}
+@media(max-width:620px){.cycle{flex-direction:column}.carrow{transform:rotate(90deg);align-self:center}.creturn{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="index.html">현황</a><a href="spec.html">스펙</a><a href="charter.html">헌장</a></nav>
+<div class="banner">v0.1 초안 — 피드백 환영 · 연합(cross-ledger)은 문법 예약 단계</div>
+<h1>MERIT-Record v0.1 (draft)</h1>
+<blockquote>
+<p><strong>스코프 디스클레이머</strong>: 이 스펙과 lint는 <strong>스키마·규칙 적합성만</strong> 판정한다 —</p>
+<p>기여의 진본성·사실성·가치·평가 공정성은 판정 대상이 아니다 (§6 참조).</p>
+<p>백로그 #21 (A005 protocol ①·②). 2층 구조: "30분 구현" 목표는 코어에만 적용된다.</p>
+</blockquote>
+<h2>1. 파일 형식 (normative)</h2>
+<ul>
+<li>JSONL: 한 줄 = 레코드 1개. <strong>UTF-8, BOM 금지.</strong> append-only — 기존 라인 수정·삭제 금지.</li>
+<li><code>ts</code>는 <strong>ISO8601 + UTC 오프셋 필수</strong> (예: <code>2026-07-04T10:12:23+09:00</code>).</li>
+<li>정정·재판정은 새 라인 + <code>supersedes</code> 구조화 필드로만 (자유 텍스트 정정 폐지).</li>
+<li>미지 필드는 무시한다 (must-ignore) — 전방 호환.</li>
+</ul>
+<h2>2. 코어 필드 (contribution record, 필수 ≤8)</h2>
+<div class="tablewrap"><table>
+<tr><th>필드</th><th>타입</th><th>규칙</th></tr>
+<tr><td><code>id</code></td><td>string</td><td>원장 내 유일 (lint가 중복 검사 — 병렬 세션 채번 충돌 대비)</td></tr>
+<tr><td><code>ts</code></td><td>string</td><td>ISO8601+offset</td></tr>
+<tr><td><code>contributor</code></td><td>string</td><td>핸들만 — 핸들 외 개인정보 금지</td></tr>
+<tr><td><code>summary</code></td><td>string</td><td>1줄</td></tr>
+<tr><td><code>evidence</code></td><td>array</td><td>링크/경로 목록 (내용물의 PII 금지)</td></tr>
+<tr><td><code>lenses</code></td><td>object</td><td><code>novelty</code>/<code>effort</code>/<code>impact</code>/<code>care</code> 각각 <code>{score: 0–5 정수, why|note: 1줄}</code></td></tr>
+<tr><td><code>total</code></td><td>int</td><td><strong>= sum(lenses.score) 파생값</strong> — 불일치는 오류. total 스칼라만의 순함수로 어떤 배분·랭킹도 만들지 않는다(리포트는 렌즈 벡터 병기)</td></tr>
+<tr><td><code>ledger_id</code></td><td>string</td><td>발행 원장 식별자. <strong>원장 로컬 파일에서는 생략 가능</strong>(bare = 자기 원장 해석, §5). 원장 간 교환 시 필수</td></tr>
+</table></div>
+<h2>3. 확장 필드 (선택)</h2>
+<p><code>evaluator</code>, <code>model_id</code>, <code>supersedes</code>, <code>cross_ledger</code>, <code>type</code>, <code>project</code></p>
+<ul>
+<li><code>supersedes</code>: 대체된 레코드 id — 집계 시 원본 제외 (이중합산 방지). 참조 대상은 존재해야 한다.</li>
+<li><code>cross_ledger</code>: 타 원장 유래 표시 (bool 또는 원장 id) — append-only에서 구분 없이 섞이면 소급 재조정 불가하므로 문법만 지금 예약.</li>
+<li><code>type</code>/<code>project</code>: 자유 분류 (canonical type은 score-mapping 참조).</li>
+<li><code>status_level</code>: non-normative 파생값 — 기록될 수 있으나 규범 아님.</li>
+</ul>
+<h2>4. attestation record</h2>
+<div class="tablewrap"><table>
+<tr><th>필드</th><th>규칙</th></tr>
+<tr><td><code>id</code>, <code>ts</code>, <code>attester</code>, <code>contribution_id</code></td><td>필수 (id 유일, ts ISO8601+offset)</td></tr>
+<tr><td><code>value_received</code></td><td><strong>1문장 필수</strong> (v0.1 이후 신규 레코드; 이전 레코드는 경고만)</td></tr>
+<tr><td><code>artifact</code></td><td>선택 — 수혜 근거 링크/경로</td></tr>
+<tr><td><code>note</code></td><td>선택 1줄</td></tr>
+</table></div>
+<p>적립 규범 (집계기 의무): **dangling(대상 부재) 0 · 셀프(자기 기여) 0 · 동일</p>
+<p>(attester, contribution_id) 중복 0.** 원장 내부의 유효 attestation은 무조건 +1</p>
+<p>보존 — 조건부화는 원장 경계(cross-ledger)에서만 (A005 원칙④ 명시 결단).</p>
+<h2>5. 연합 (federation) — <strong>문법만 예약</strong></h2>
+<ul>
+<li>URI: <code>merit:&lt;ledger_id&gt;:&lt;local_id&gt;</code> / 핸들: <code>name@ledger_id</code> / bare id = 자기 원장 해석.</li>
+<li>config의 <code>trusted_ledgers</code> allowlist: 미등록 원장발 attestation은 <strong>파싱되되 적립 0</strong>.</li>
+<li><strong>크로스-원장 적립·정산 의미론은 이 버전에 존재하지 않는다</strong> (experimental) — 독립 원장 2개의 라이브 상호운용 데이터 확보 후 v0.2에서 확정한다 (IETF "독립 구현 2개 상호운용 전 표준화 금지" 준수). 본 스펙의 어떤 문구도 원장 간 정산·지급을 규정하지 않는다.</li>
+</ul>
+<h2>6. 이 스펙이 보장하지 않는 것 (위협모델 요약)</h2>
+<ul>
+<li><strong>진본성·사실성</strong> — 기여가 실제 있었는지, evidence가 진짜인지 검증하지 않는다.</li>
+<li><strong>신원</strong> — contributor/attester 핸들의 실존·동일성 (aliases는 운영 편의 병합일 뿐).</li>
+<li><strong>변조 방지</strong> — 암호학적 무결성 없음 (P0 금지선). 파일 소유자는 기술적으로 재작성 가능하며, 방어는 append-only 규율 + 공개 리포트 diff 관측뿐.</li>
+<li><strong>평가 공정성</strong> — 4렌즈 점수의 품질은 평가자(운영자 LLM) 캘리브레이션 소관 (미해결 §: 평가자 단일점).</li>
+</ul>
+<h2>7. 거버넌스</h2>
+<ul>
+<li>동결된 버전은 영구 유효 — 운영자를 포함해 누구도 기존 라인을 소급 무효화할 수 없다.</li>
+<li>개정은 새 <code>schema_version</code> 발행으로만. <strong>포크 자유 명시.</strong></li>
+<li>PII: redaction 라인 타입 + "컴플라이언스 재작성" 절차만이 유일하게 허용되는 파일 변형(기록 의무) — 상세 절차는 v0.2 과제.</li>
+</ul>
+<hr>
+<p>검증 도구: <code>scripts/merit_lint.py</code> (stdlib, exit 0/1)</p>
+<footer>
+<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 12:43 KST</p>
+<p>집계 규율: supersedes 제외 · attestation 검증(dangling/중복/셀프 무효, 주간 크레딧 상한) · 7일 롤링 총점 캡</p>
+</footer>
+</div>
+</body>
+</html>

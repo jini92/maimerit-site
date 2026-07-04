@@ -13,6 +13,7 @@ body{margin:0;background:var(--bg);color:var(--fg);line-height:1.65;
 nav{margin-bottom:24px;font-size:.95rem}
 nav a{color:var(--accent);text-decoration:none;margin-right:18px}
 nav a:hover{text-decoration:underline}
+a{color:var(--accent)}
 h1{font-size:1.9rem;margin:0 0 4px}
 h2{font-size:1.25rem;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
 h3{font-size:1.05rem;margin:24px 0 8px}
@@ -41,11 +42,27 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.88em}
 p code,li code{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:0 4px}
 footer{color:var(--muted);font-size:.83rem;margin-top:44px;border-top:1px solid var(--border);padding-top:14px}
 footer p{margin:4px 0}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+.cycle{display:flex;align-items:stretch;gap:6px;margin:18px 0 4px}
+.cnode{flex:1 1 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:10px 8px;text-align:center;min-width:0}
+.cnode b{display:block;font-size:.9rem;margin-bottom:2px}
+.cnode span{color:var(--muted);font-size:.76rem;line-height:1.35;display:block}
+.carrow{align-self:center;color:var(--accent);font-weight:700;flex:0 0 auto;font-size:1.05rem}
+.creturn{border:1.5px solid var(--accent);border-top:none;border-radius:0 0 14px 14px;height:16px;margin:0 36px 4px;position:relative;opacity:.7}
+.creturn::after{content:"\25B2";position:absolute;left:-7px;top:-10px;color:var(--accent);font-size:.72rem}
+.cloops{display:grid;gap:8px;margin:12px 0 4px}
+.cloop{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:8px 12px;font-size:.86rem;color:var(--muted)}
+.cloop b{color:var(--fg)}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:8px}
+.principle{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.principle b{display:block;margin-bottom:4px}
+.principle p{margin:0;color:var(--muted);font-size:.86rem}
+@media(max-width:620px){.cycle{flex-direction:column}.carrow{transform:rotate(90deg);align-self:center}.creturn{display:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav><a href="index.html">현황</a><a href="charter.html">헌장 초안</a></nav>
+<nav><a href="index.html">현황</a><a href="spec.html">스펙</a><a href="charter.html">헌장</a></nav>
 <div class="banner">초안 — 승인 전 효력 없음 (오너 T2 승인 대기)</div>
 <h1>D003 — MAIMERIT 원장 헌장 초안 (Ledger Charter)</h1>
 <blockquote>
@@ -107,7 +124,7 @@ footer p{margin:4px 0}
 <li>분기별 공개 대사(surplus-log vs 외부 증빙)는 풀 가동 후 의무 (A005 economy ①).</li>
 </ul>
 <footer>
-<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 12:33 KST</p>
+<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 12:43 KST</p>
 <p>집계 규율: supersedes 제외 · attestation 검증(dangling/중복/셀프 무효, 주간 크레딧 상한) · 7일 롤링 총점 캡</p>
 </footer>
 </div>

@@ -13,6 +13,7 @@ body{margin:0;background:var(--bg);color:var(--fg);line-height:1.65;
 nav{margin-bottom:24px;font-size:.95rem}
 nav a{color:var(--accent);text-decoration:none;margin-right:18px}
 nav a:hover{text-decoration:underline}
+a{color:var(--accent)}
 h1{font-size:1.9rem;margin:0 0 4px}
 h2{font-size:1.25rem;margin:36px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
 h3{font-size:1.05rem;margin:24px 0 8px}
@@ -41,30 +42,43 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.88em}
 p code,li code{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:0 4px}
 footer{color:var(--muted);font-size:.83rem;margin-top:44px;border-top:1px solid var(--border);padding-top:14px}
 footer p{margin:4px 0}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+.cycle{display:flex;align-items:stretch;gap:6px;margin:18px 0 4px}
+.cnode{flex:1 1 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:10px 8px;text-align:center;min-width:0}
+.cnode b{display:block;font-size:.9rem;margin-bottom:2px}
+.cnode span{color:var(--muted);font-size:.76rem;line-height:1.35;display:block}
+.carrow{align-self:center;color:var(--accent);font-weight:700;flex:0 0 auto;font-size:1.05rem}
+.creturn{border:1.5px solid var(--accent);border-top:none;border-radius:0 0 14px 14px;height:16px;margin:0 36px 4px;position:relative;opacity:.7}
+.creturn::after{content:"\25B2";position:absolute;left:-7px;top:-10px;color:var(--accent);font-size:.72rem}
+.cloops{display:grid;gap:8px;margin:12px 0 4px}
+.cloop{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:8px 12px;font-size:.86rem;color:var(--muted)}
+.cloop b{color:var(--fg)}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:8px}
+.principle{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.principle b{display:block;margin-bottom:4px}
+.principle p{margin:0;color:var(--muted);font-size:.86rem}
+@media(max-width:620px){.cycle{flex-direction:column}.carrow{transform:rotate(90deg);align-self:center}.creturn{display:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav><a href="index.html">현황</a><a href="charter.html">헌장 초안</a></nav>
+<nav><a href="index.html">현황</a><a href="spec.html">스펙</a><a href="charter.html">헌장</a></nav>
 <h1>MAIMERIT</h1>
 <p class="tagline">기여가 기록되고, 평가받고, 존경이 되는 원장</p>
 <p class="thesis">시장 가격은 사회적 가치를 다 담지 못한다 — 돌봄·큐레이션·커뮤니티 유지 같은 기여는 측정되지도, 보상받지도 못한다. AI가 노동을 대체할수록 "누가 무엇을 기여했는가"의 측정은 한 조직이 아니라 <b>사회의 과제</b>가 된다. MAIMERIT는 기여를 증거와 함께 기록하고 AI 4렌즈(novelty · effort · impact · care)로 즉시 평가하며, 수혜자의 인증(attestation)을 다시 최소 기여로 되돌리는 append-only 기여 원장이다. 지위 → 특권 → 돈의 순서를 지켜 점수가 돈으로 직교환되지 않는 존경의 화폐를 실험한다. 단일 점수·랭킹·감시를 거부하는 이 원칙들은 사회신용 시스템의 <b>대항 모델</b>로 설계됐다.</p>
 <p class="thesis">이 원장은 특정 조직의 내부 도구가 아니라, 동네 돌봄 품앗이든 오픈소스든 학습 모임이든 <b>어떤 커뮤니티나 소유할 수 있는 공통 문법</b>을 지향한다 — 커뮤니티가 각자 원장을 갖고 표준만 공유하는 다원적 측정. MAI Universe는 소유자가 아니라 첫 실증 코호트이며, 여기서 검증된 원형과 실증 데이터는 기본소득 시대의 기여 보상 제도 논의에 공급된다.</p>
-<h2>현황</h2>
+<h2>자생 사이클</h2>
+<div class="cycle"><div class="cnode"><b>기여</b><span>증거와 함께 기록</span></div><div class="carrow">&rarr;</div><div class="cnode"><b>AI 4렌즈 즉시 평가</b><span>novelty &middot; effort &middot; impact &middot; care</span></div><div class="carrow">&rarr;</div><div class="cnode"><b>수혜자 인증</b><span>attestation</span></div><div class="carrow">&rarr;</div><div class="cnode"><b>평판</b><span>레벨 &middot; 절대 기준</span></div><div class="carrow">&rarr;</div><div class="cnode"><b>보상</b><span>지위 &rarr; 특권 &rarr; 돈</span></div></div>
+<div class="creturn" aria-hidden="true"></div>
+<div class="cloops"><div class="cloop"><b>&#8630; 보상 &rarr; 기여</b> — 사이클은 처음으로 돌아간다: 보상받은 기여자가 다시 기여한다.</div><div class="cloop"><b>&#9881; 인증 &rarr; 기여</b> — 인증은 그 자체가 +1 최소 기여다. 수혜자가 인증하는 순간 그도 기여자가 된다.</div><div class="cloop"><b>&#8635; 잉여 환류</b> — 커뮤니티 잉여의 고정 %가 보상 풀로 환류되어 다음 기여의 동력이 된다.</div></div>
+<h2>① 기여 — 기록과 증거</h2>
 <div class="cards">
-<div class="card"><span class="num">7</span><span class="lbl">총 기여</span></div>
-<div class="card"><span class="num">0</span><span class="lbl">유효 인증</span></div>
+<div class="card"><span class="num">7</span><span class="lbl">유효 기여</span></div>
+<div class="card"><span class="num">8</span><span class="lbl">원장 기록</span></div>
 <div class="card"><span class="num">2</span><span class="lbl">기여자</span></div>
 </div>
-<h2>레벨 보드</h2>
-<div class="tablewrap"><table>
-<tr><th>레벨</th><th>기여자</th><th>누적 점수</th><th>인증 준/받음</th></tr>
-<tr><td><span class="badge badge-S">[S] Silver</span></td><td>Claude/MAIJini</td><td class="num-cell">40</td><td class="num-cell">0/0</td></tr>
-<tr><td><span class="badge badge-S">[S] Silver</span></td><td>지니+Claude</td><td class="num-cell">29</td><td class="num-cell">0/0</td></tr>
-</table></div>
-<p class="note">순위 없음 — 레벨은 절대 기준 도달의 표시이며 서로를 이기는 랭킹이 아닙니다.</p>
-<p class="note">7일 롤링 총점 캡(40, 보수적 프라이어) 초과 미산입: Claude/MAIJini 29점</p>
-<h2>최근 기여</h2>
+<p class="note">원장은 append-only — 정정은 삭제가 아니라 supersedes 레코드로 이루어지며, 대체된 원본은 집계에서만 제외된다 (원장 기록과 유효 기여의 차이가 그 정정분).</p>
+<h3>최근 기여</h3>
 <div class="tablewrap"><table>
 <tr><th>날짜</th><th>기여자</th><th>프로젝트</th><th>N/E/I/C</th><th>total</th><th>내용</th></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/3/4/5</td><td class="num-cell">15</td><td>운영 사이트(정적 GitHub Pages) 구축 + 주간 자동 게시 파이프라인(schtasks) + 중복 파이프라인 통합 + 레벨 보드(무순위) 전환<span class="ev">증거: 사이트 maimerit-site (GitHub Pages) · MAIMERIT 커밋 dce92e7 외 · Discord 게시 E2E 실증 msg 1522783936772706435 · 정정 사유: 원본 c-007 evidence에 로컬 계정명 유사 문자열 포함 — 새니타이즈 게이트 검출</span></td></tr>
@@ -75,7 +89,21 @@ footer p{margin:4px 0}
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAISTUDYMATE</td><td class="num-cell">3/3/3/4</td><td class="num-cell">13</td><td>MAISTUDYMATE 2차수익모델 분석 v0.1~v0.3</td></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIBOTALKS</td><td class="num-cell">4/4/4/3</td><td class="num-cell">15</td><td>BOTALKS 카페 게이트웨이 모드 PoC + 온프레미스 튜터 완성<span class="ev">증거: MAIBOTALKS repo commits 89b9f97~e474b26 · docs/D007</span></td></tr>
 </table></div>
-<h2>레벨 기준</h2>
+<h2>② 수혜자 인증 (attestation)</h2>
+<div class="cards">
+<div class="card"><span class="num">0</span><span class="lbl">유효 인증</span></div>
+</div>
+<p class="note">도움을 받은 사람이 남기는 인증은 <b>그 자체가 +1 최소 기여</b>로 적립된다 — 소비자가 기여자로 전환되는 톱니.</p>
+<p class="note">검증 규율: 대상 없는(dangling)·셀프·중복 인증은 무효, attester 크레딧 산입은 주당 3건까지. 검증 제외: 현재까지 0건.</p>
+<h2>③ 평판 — 레벨 보드</h2>
+<div class="tablewrap"><table>
+<tr><th>레벨</th><th>기여자</th><th>누적 점수</th><th>인증 준/받음</th></tr>
+<tr><td><span class="badge badge-S">[S] Silver</span></td><td>Claude/MAIJini</td><td class="num-cell">40</td><td class="num-cell">0/0</td></tr>
+<tr><td><span class="badge badge-S">[S] Silver</span></td><td>지니+Claude</td><td class="num-cell">29</td><td class="num-cell">0/0</td></tr>
+</table></div>
+<p class="note">순위 없음 — 레벨은 절대 기준 도달의 표시이며 서로를 이기는 랭킹이 아닙니다.</p>
+<p class="note">7일 롤링 총점 캡(40, 보수적 프라이어) 초과 미산입: Claude/MAIJini 29점</p>
+<h3>레벨 기준</h3>
 <div class="tablewrap"><table>
 <tr><th>레벨</th><th>누적 점수 구간</th></tr>
 <tr><td><span class="badge badge-B">[B] Bronze</span></td><td class="num-cell">0 ~ 24</td></tr>
@@ -83,8 +111,31 @@ footer p{margin:4px 0}
 <tr><td><span class="badge badge-G">[G] Gold</span></td><td class="num-cell">60 ~ 119</td></tr>
 <tr><td><span class="badge badge-P">[P] Platinum</span></td><td class="num-cell">120 +</td></tr>
 </table></div>
+<h2>④ 보상 — 현 단계: 지위 단계</h2>
+<p class="thesis">보상은 <b>지위 &rarr; 특권 &rarr; 돈</b>의 순서를 지킨다. 현 단계(P0)의 보상은 레벨·배지라는 지위뿐이며, 어떤 금전 지급도 이루어지지 않는다.</p>
+<div class="cards">
+<div class="card"><span class="num">&#8361;0</span><span class="lbl">보상 풀 (미가동)</span></div>
+<div class="card"><span class="num">0.0</span><span class="lbl">surplus_reflux_rate (현재)</span></div>
+</div>
+<p class="note">자동 가동 트리거 — P1 게이트: 외부 디자인 파트너 LOI 1건 <b>또는</b> 첫 매출. 게이트 통과 전에는 풀이 존재하지 않는다.</p>
+<p class="note">환류는 풀 단위로만 — 개인 점수&harr;돈 직교환과 "점수당 환율"은 금지된다. 지급은 회차별 재량 결의(ex-gratia)로 확정되며 <b>지급 약속이 아니다</b> — 참여자의 청구권은 존재하지 않는다. 산식·트리거의 정본은 <a href="charter.html">헌장 초안</a> 참조.</p>
+<h2>자생 회로 — 5원칙</h2>
+<div class="principles">
+<div class="principle"><b>잉여 환류</b><p>기여가 만든 커뮤니티 잉여의 고정 %가 보상 풀로 환류된다. 풀이 시혜가 아닌 내부 생산물이 되는 순간 자생이 시작된다.</p></div>
+<div class="principle"><b>지위 &rarr; 특권 &rarr; 돈</b><p>보상은 반드시 이 순서를 지킨다. 조기 금전 보상은 과잉정당화 효과로 내적 동기를 파괴한다.</p></div>
+<div class="principle"><b>밀도 우선</b><p>기여가 서로 보이는 작고 진한 그룹에서 점화한 뒤 확장한다.</p></div>
+<div class="principle"><b>인증 = 기여 톱니</b><p>도움받았다는 인증 자체가 +1 최소 기여로 적립된다. 수혜자가 기여자로 전환되는 플라이휠.</p></div>
+<div class="principle"><b>콜드스타트는 AI가 첫 수혜자</b><p>기여를 제출하면 즉시 AI가 4렌즈 평가와 피드백을 준다. 첫 기여자도 5분 안에 첫 가치를 받는다.</p></div>
+</div>
+<h2>참여·공개</h2>
+<ul>
+<li><b>현 상태</b> — P0 도그푸드: MAI Universe 코호트가 첫 실증 중. P1 외부 파일럿은 게이트(외부 LOI 1건 또는 첫 매출) 통과 후 열린다.</li>
+<li><b>관심 표시</b> — GitHub repo watch: <a href="https://github.com/jini92/maimerit-site">jini92/maimerit-site</a></li>
+<li><b>프로토콜 스펙</b> — <a href="spec.html">MERIT-Record v0.1 초안</a> 공개 (피드백 환영).</li>
+<li><b>원장 규율</b> — 원장은 append-only, 정정은 supersedes로만. 이 사이트의 수치는 검증 규율(스킵·캡) 통과분만 반영한다.</li>
+</ul>
 <footer>
-<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 12:33 KST</p>
+<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 12:43 KST</p>
 <p>집계 규율: supersedes 제외 · attestation 검증(dangling/중복/셀프 무효, 주간 크레딧 상한) · 7일 롤링 총점 캡</p>
 </footer>
 </div>
