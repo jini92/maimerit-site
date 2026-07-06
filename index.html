@@ -73,14 +73,18 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 <div class="cloops"><div class="cloop"><b>&#8630; 보상 &rarr; 기여</b> — 사이클은 처음으로 돌아간다: 보상받은 기여자가 다시 기여한다.</div><div class="cloop"><b>&#9881; 인증 &rarr; 기여</b> — 인증은 그 자체가 +1 최소 기여다. 수혜자가 인증하는 순간 그도 기여자가 된다.</div><div class="cloop"><b>&#8635; 잉여 환류</b> — 커뮤니티 잉여의 고정 %가 보상 풀로 환류되어 다음 기여의 동력이 된다.</div></div>
 <h2>① 기여 — 기록과 증거</h2>
 <div class="cards">
-<div class="card"><span class="num">9</span><span class="lbl">유효 기여</span></div>
-<div class="card"><span class="num">10</span><span class="lbl">원장 기록</span></div>
+<div class="card"><span class="num">13</span><span class="lbl">유효 기여</span></div>
+<div class="card"><span class="num">14</span><span class="lbl">원장 기록</span></div>
 <div class="card"><span class="num">2</span><span class="lbl">기여자</span></div>
 </div>
 <p class="note">원장은 append-only — 정정은 삭제가 아니라 supersedes 레코드로 이루어지며, 대체된 원본은 집계에서만 제외된다 (원장 기록과 유효 기여의 차이가 그 정정분).</p>
 <h3>최근 기여</h3>
 <div class="tablewrap"><table>
 <tr><th>날짜</th><th>기여자</th><th>프로젝트</th><th>N/E/I/C</th><th>total</th><th>내용</th></tr>
+<tr><td>2026-07-05</td><td>지니+Claude</td><td>MAIMERIT</td><td class="num-cell">3/4/4/4</td><td class="num-cell">15</td><td>골프 검증 브리프 A008(333줄) — 실측 리서치 5발견(&#x27;할인 아닌 확보&#x27; 재정렬·온라인 모집 배제 조항), 20/35/50 3구간 산술, 2주 스프린트(CC 견적 1콜 준비), §4 기여-보상 운영 계획안(35명 12라운딩 시나리오)<span class="ev">증거: MAIMERIT 커밋 edc4fee · docs/A008-golf-validation-brief.md · 연단체 규정 PDF 등 출처 명기</span></td></tr>
+<tr><td>2026-07-05</td><td>지니+Claude</td><td>MAIMERIT</td><td class="num-cell">4/3/3/4</td><td class="num-cell">14</td><td>동호회 초기 자금 모델 2안 분석 문서(A007, 412줄) — 반환부 회비 원안 기각 기록, 비반환 멤버십·협동조합 출자금 설계, 하이브리드 A→B 경로, 골프 50명 케이스 산술, 레드라인 14종<span class="ev">증거: MAIMERIT 커밋 9d7b66c·f25507d · docs/A007-club-funding-models.md · 병렬 A006과 결론 수렴 확인</span></td></tr>
+<tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/4/4/5</td><td class="num-cell">16</td><td>사이클 알고리즘 정형화 — D006 문서(386줄, 게이밍 매핑 15벡터·워크드 예제 2건) + meritlib 3함수 구현 + 테스트 27건 PASS(문서 숫자 1:1 일치) + 파라미터 가드 10케이스 잠금. 병렬 D005의 위원회 상충 4건 검출·정합 노트<span class="ev">증거: MAIMERIT b49e7aa · MAIBOT 1b1d392248 · test_cycle §9 숫자 일치, tests/test_params_guard.py 10케이스</span></td></tr>
+<tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/4/4/4</td><td class="num-cell">15</td><td>글래스모피즘 개념 랜딩 전면 재구성(3초 컷 히어로·글래스 픽토그램·도현체) + 주간 파이프라인 템플릿 동기화로 스킨 영속화 — 공개 사이트 손데이터 0 달성<span class="ev">증거: gh-pages e2c8ae5 · master 47d5f77 (templates/cycle.html) · 390px 첫 뷰포트 검증·blur 실렌더·reduced-motion</span></td></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">4/3/3/4</td><td class="num-cell">14</td><td>사이클 사이트 &#x27;원장 에디토리얼&#x27; 디자인 패스 — 고운바탕/한지 그레인/낙관 인장/괘선·세로 눈썹/플라이휠 U자 회귀 레일/스태거 모션, 실렌더 검증 및 결함 3건 수정<span class="ev">증거: gh-pages 커밋 d6a0234 · 데스크톱 1280·모바일 390 Playwright 렌더 검증 · 데이터 원장 동기화(7건·정정 카드·라이브 원장 링크)</span></td></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/3/3/4</td><td class="num-cell">13</td><td>라이브 원장 사이트를 자생 사이클 구조로 개편(다이어그램+단계별 라이브 섹션+5원칙) + 프로토콜 스펙 v0.1 첫 공개(spec.html)<span class="ev">증거: MAIMERIT 커밋 699f0ae · maimerit-site 커밋 f21b5c3 · 3페이지 200 확인, sanitize PASS</span></td></tr>
 <tr><td>2026-07-04</td><td>Claude/MAIJini</td><td>MAIMERIT</td><td class="num-cell">3/3/4/5</td><td class="num-cell">15</td><td>운영 사이트(정적 GitHub Pages) 구축 + 주간 자동 게시 파이프라인(schtasks) + 중복 파이프라인 통합 + 레벨 보드(무순위) 전환<span class="ev">증거: 사이트 maimerit-site (GitHub Pages) · MAIMERIT 커밋 dce92e7 외 · Discord 게시 E2E 실증 msg 1522783936772706435 · 정정 사유: 원본 c-007 evidence에 로컬 계정명 유사 문자열 포함 — 새니타이즈 게이트 검출</span></td></tr>
@@ -101,10 +105,10 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 <div class="tablewrap"><table>
 <tr><th>레벨</th><th>기여자</th><th>누적 점수</th><th>인증 준/받음</th></tr>
 <tr><td><span class="badge badge-S">[S] Silver</span></td><td>Claude/MAIJini</td><td class="num-cell">40</td><td class="num-cell">0/0</td></tr>
-<tr><td><span class="badge badge-S">[S] Silver</span></td><td>지니+Claude</td><td class="num-cell">29</td><td class="num-cell">0/0</td></tr>
+<tr><td><span class="badge badge-S">[S] Silver</span></td><td>지니+Claude</td><td class="num-cell">40</td><td class="num-cell">0/0</td></tr>
 </table></div>
 <p class="note">순위 없음 — 레벨은 절대 기준 도달의 표시이며 서로를 이기는 랭킹이 아닙니다.</p>
-<p class="note">7일 롤링 총점 캡(40, 보수적 프라이어) 초과 미산입: Claude/MAIJini 56점</p>
+<p class="note">7일 롤링 총점 캡(40, 보수적 프라이어) 초과 미산입: Claude/MAIJini 87점, 지니+Claude 18점</p>
 <h3>레벨 기준</h3>
 <div class="tablewrap"><table>
 <tr><th>레벨</th><th>누적 점수 구간</th></tr>
@@ -137,7 +141,7 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 <li><b>원장 규율</b> — 원장은 append-only, 정정은 supersedes로만. 이 사이트의 수치는 검증 규율(스킵·캡) 통과분만 반영한다.</li>
 </ul>
 <footer>
-<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-04 13:08 KST</p>
+<p>P0 도그푸드 — 데이터는 주간 갱신, append-only 원장 기반 · 생성 2026-07-06 11:03 KST</p>
 <p>집계 규율: supersedes 제외 · attestation 검증(dangling/중복/셀프 무효, 주간 크레딧 상한) · 7일 롤링 총점 캡</p>
 </footer>
 </div>
